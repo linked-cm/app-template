@@ -1,0 +1,24 @@
+{
+  "compilerOptions": {
+    "module": "esnext",
+    "moduleResolution": "node",
+    "sourceMap": true,
+    "target": "es2018",
+    "resolveJsonModule": true,
+    "declaration": false,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "jsx": "react-jsx",
+    "types": ["node", "react", "react-dom"],
+    "plugins": [
+      {
+        "name": "typescript-plugin-css-modules"
+      }
+    ],
+    "pretty": true
+  },
+  "files": ["./src/index.tsx", "./src/types.ts"],
+  "include": ["./src/backend.ts"]
+}
