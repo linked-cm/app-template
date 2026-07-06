@@ -5,6 +5,7 @@ public/bundles
 data/uploads
 data/metadata
 data/sessions
+linked.backend.datasets.json
 .yarn/*
 !.yarn/patches
 !.yarn/plugins
@@ -22,3 +23,5 @@ packages/**/.yarn/*
 .idea
 android/app/build
 ios/App/App/public
+# Local env (copied from .env.example)
+.env

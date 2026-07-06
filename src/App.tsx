@@ -3,12 +3,14 @@ import React, { Suspense } from 'react';
 import { ErrorBoundary } from 'react-error-boundary';
 import { Spinner } from './components/Spinner';
 import { Error } from './components/Error';
-import { AppRoot } from 'lincd-server-utils/components/AppRoot';
-import { Head } from 'lincd-server-utils/components/Head';
-import { Body } from 'lincd-server-utils/components/Body';
+import { AppRoot } from '@_linked/server-utils/components/AppRoot';
+import { Head } from '@_linked/server-utils/components/Head';
+import { Body } from '@_linked/server-utils/components/Body';
 import AppRoutes, { ROUTES } from './routes';
-import { ProvideAuth } from 'lincd-auth/hooks/useAuth';
 import style from './App.module.css'; //import any .module.css file like this and access the classnames from the style object
+
+// To add sign-in to this app, install `@_linked/auth`, wrap <AppRoutes/>
+// in <ProvideAuth>, and uncomment the `requireAuth` line in routes.tsx.
 
 export default function App() {
   return (
@@ -19,9 +21,7 @@ export default function App() {
       <Body routes={ROUTES} pageStyles={style} className={style.App}>
         <Suspense fallback={<Spinner />}>
           <ErrorBoundary FallbackComponent={Error}>
-            <ProvideAuth>
-              <AppRoutes />
-            </ProvideAuth>
+            <AppRoutes />
           </ErrorBoundary>
         </Suspense>
       </Body>
