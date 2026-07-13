@@ -1,12 +1,21 @@
-// Ensure a local `.env` exists for standalone dev by copying `.env.example` on
-// first run. Runs from the `prestart` / `prebuild` npm hooks.
+// Bootstrap local (gitignored) config files from their committed `.example`
+// counterparts on first run. Wired to the `prestart` / `prebuild` npm hooks so
+// a fresh clone boots with no manual copy step.
 //
-// `.env` is gitignored; in production the host replaces it or injects real env
-// vars instead. No-op when `.env` already exists (e.g. the CLI wrote it on
-// create, or the developer has customised it). CommonJS (.cjs) so it runs
-// regardless of the package's "type": "module".
+// Each pair is copied only when the target is missing (no-op otherwise — e.g.
+// the CLI already wrote it on create, or the developer has customised it).
+// In production the host replaces these or injects real env instead. CommonJS
+// (.cjs) so it runs regardless of the package's "type": "module".
 const fs = require('fs');
-if (!fs.existsSync('.env') && fs.existsSync('.env.example')) {
-  fs.copyFileSync('.env.example', '.env');
-  console.log('Created .env from .env.example — edit it for local dev.');
+
+const pairs = [
+  ['.env.example', '.env'],
+  ['linked.backend.datasets.example.json', 'linked.backend.datasets.json'],
+];
+
+for (const [example, target] of pairs) {
+  if (!fs.existsSync(target) && fs.existsSync(example)) {
+    fs.copyFileSync(example, target);
+    console.log(`Created ${target} from ${example}.`);
+  }
 }
