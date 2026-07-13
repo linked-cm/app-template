@@ -1,4 +1,4 @@
-// Backend storage for ${name}.
+// Backend storage config.
 //
 // Reads linked.backend.datasets.json, dynamically imports each alias's
 // store class via its npm path, and instantiates with the entry's `config`

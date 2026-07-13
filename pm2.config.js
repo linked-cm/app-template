@@ -1,7 +1,7 @@
 module.exports = {
   apps: [
     {
-      name: '${hyphen_name}',
+      name: 'app',
       script: 'yarn run server:prod',
       time: true,
       log_date_format: 'DD-MM-YYYY HH:mm Z',

@@ -13,4 +13,4 @@ export const {
   registerPackageExport,
   packageExports,
   packageName,
-} = linkedPackage('${hyphen_name}');
+} = linkedPackage('app');

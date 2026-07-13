@@ -3,7 +3,7 @@
   "configurations": [
     {
       "command": "yarn start",
-      "name": "Run ${hyphen_name}",
+      "name": "Run app",
       "request": "launch",
       "type": "node-terminal"
     }
