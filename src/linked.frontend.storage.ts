@@ -1,4 +1,4 @@
-// Frontend storage for ${name}.
+// Frontend storage config.
 //
 // Reads linked.frontend.datasets.json and instantiates one store per
 // alias. Webpack can't bundle dynamic imports of arbitrary npm paths,

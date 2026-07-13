@@ -1,7 +1,7 @@
 module.exports = {
   apps: [
     {
-      name: '${hyphen_name}-staging',
+      name: 'app-staging',
       script: 'yarn run server:staging',
       time: true,
       log_date_format: 'DD-MM-YYYY HH:mm Z',
